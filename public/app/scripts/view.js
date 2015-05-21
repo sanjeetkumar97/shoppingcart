@@ -34,7 +34,8 @@ import {SignupModel,signupModel,LoginModel,
     var sh = $('#search').val();
       if(sh != ""){
       $('#search').val('');
-      location.assign("http://localhost:3000/#/search/"+sh);
+      //location.assign("http://localhost:3000/#/search/"+sh);
+      location.assign("https://aqueous-mountain-5707.herokuapp.com"+sh);
       }else{
         alert('please insert some data');
       }
@@ -45,7 +46,8 @@ import {SignupModel,signupModel,LoginModel,
        var sh = $('#search').val();
         if(sh != ""){
         $('#search').val('');
-        location.assign("http://localhost:3000/#/search/"+sh);
+        //location.assign("http://localhost:3000/#/search/"+sh);
+        location.assign("https://aqueous-mountain-5707.herokuapp.com"+sh);
         }else{
           alert('please insert some data');
         }
