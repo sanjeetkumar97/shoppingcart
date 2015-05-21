@@ -1,0 +1,70 @@
+body {
+  background-color: #FFFFFF;
+}
+
+#wrapper{
+  margin-top: 10px;
+  
+}
+
+footer{
+  text-align: center;
+  color: #FFFFFF;
+  height:50px;
+  background-color: #000000;
+}
+
+.carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 100%;
+      margin: auto;
+     
+}
+/*
+#cart
+{ 
+  margin-top: 20px;
+  width:100%;
+  background-color: #000000;
+  position: fixed;
+  z-index: 2000;
+}
+*/
+#form-search{
+  margin-top: 60px;
+}
+
+#popup{
+  margin-top: 0px;
+  width:100%;
+  background-color: #999999;
+  position: fixed;
+  z-index: 2000;
+}
+
+#stuff-detail{
+  background-color: #EEEEEE;
+  border:1px solid #CCCCCC;
+  box-shadow: 2px 2px 5px;
+}
+
+#signup-page{
+  background-color: #EEEEEE;
+  border:1px solid #CCCCCC;
+  box-shadow: 2px 2px 5px;
+}
+
+.popup-page{
+  background-color: #EEEEEE;
+  border:1px solid #CCCCCC;
+  box-shadow: 2px 2px 5px;
+}
+
+#account-link{
+  color: #FFFF00;
+}
+
+#cart-table{
+  height: 300px;
+  overflow: scroll;
+}
