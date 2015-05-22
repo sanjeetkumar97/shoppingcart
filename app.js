@@ -21,6 +21,7 @@ var routes = require('./routes/index');
 //var users = require('./routes/users');
 
 var app = express();
+//app.use(express.static(path.join(__dirname, 'public')));
 var hbs = require('hbs');
 var fs = require('fs');
 
