@@ -7,6 +7,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 
+
+var routes = require('./routes/index');
 var shirts = require('./routes/shirts');
 var jeanses = require('./routes/jeanses');
 var profiles = require('./routes/profiles');
@@ -17,7 +19,7 @@ var girls = require('./routes/girls');
 var kurtis = require('./routes/kurtis');
 var sandles = require('./routes/sandles');
 var search = require('./routes/search');
-var routes = require('./routes/index');
+
 //var users = require('./routes/users');
 
 var app = express();
@@ -38,14 +40,15 @@ app.set('views', __dirname + '/views');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride()); 
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-//app.use(express.static(__dirname + '../public'));
 
+//app.use(express.static(__dirname + '../public'));
+app.use('/', routes);
 app.use('/',shirts);
 app.use('/',jeanses);
 app.use('/',shoes);
@@ -56,7 +59,7 @@ app.use('/',profiles);
 app.use('/',kurtis);
 app.use('/',sandles);
 app.use('/',search);
-app.use('/', routes);
+
 //app.use('/users', users);
 
 // catch 404 and forward to error handler
