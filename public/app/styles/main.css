@@ -67,3 +67,7 @@ footer{
   height: 300px;
   overflow: auto;
 }
+
+.progress {
+  margin-left: 35%;
+}
