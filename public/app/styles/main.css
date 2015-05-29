@@ -55,8 +55,8 @@ footer{
 }
 
 .popup-page{
-  background-color: #EEEEEE;
-  border:1px solid #CCCCCC;
+  background-color: #FFD5D5;
+  border:1px solid #FF0000;
   box-shadow: 2px 2px 5px;
 }
 
@@ -66,5 +66,5 @@ footer{
 
 #cart-table{
   height: 300px;
-  overflow: scroll;
+  overflow: auto;
 }
