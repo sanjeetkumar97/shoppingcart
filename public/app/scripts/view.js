@@ -1,7 +1,7 @@
 var ENTER_KEY = 13;
 import { shirts,jeanses,shoes,sarees,boys,girls,kurtis,sandles,trends,brands,deals,cartCollection,searchResults} from './collection';
 import {SignupModel,signupModel,LoginModel,
-  loginModel,accountModel,itemDetailModel} from './model';
+  loginModel,accountModel,messageModel,itemDetailModel} from './model';
 
  class CommonView extends Backbone.View {
 	constructor(options){
@@ -37,7 +37,11 @@ import {SignupModel,signupModel,LoginModel,
       //location.assign("http://localhost:3000/#/search/"+sh);
       location.assign("https://aqueous-mountain-5707.herokuapp.com/#/search/"+sh);
       }else{
-        alert('please insert some data');
+        //alert('please insert some data');
+            $('#box').empty();
+             messageModel.set("message","Please insert some data");
+             var messageView = new MessageView({model:messageModel});
+             $('#box').html(messageView.render().$el);
       }
   }
   enterSearch(e){
@@ -49,7 +53,11 @@ import {SignupModel,signupModel,LoginModel,
         //location.assign("http://localhost:3000/#/search/"+sh);
         location.assign("https://aqueous-mountain-5707.herokuapp.com/#/search/"+sh);
         }else{
-          alert('please insert some data');
+          //alert('please insert some data');
+             $('#box').empty();
+             messageModel.set("message","Please insert some data");
+             var messageView = new MessageView({model:messageModel});
+             $('#box').html(messageView.render().$el);
         }
      }
   }
@@ -425,11 +433,19 @@ class SignupView extends Backbone.View {
 
     signupModel.save(signupModel.attributes,{
     	success:function(model,response,options){
-    		alert('congrats you have successfully signed up');
+    		//alert('congrats you have successfully signed up');
+             $('#box').empty();
+             messageModel.set("message","congrats you have successfully signed up");
+             var messageView = new MessageView({model:messageModel});
+             $('#box').html(messageView.render().$el);
         self.remove();
     	},
     	error:function(model,xhr,options){
-    		alert('Failed to save data');
+    		//alert('Failed to save data');
+             $('#box').empty();
+             messageModel.set("message","Failed to save data");
+             var messageView = new MessageView({model:messageModel});
+             $('#box').html(messageView.render().$el);
     	}
   });
   
@@ -469,7 +485,12 @@ class LoginView extends Backbone.View{
     loginModel.save(loginModel.attributes,{
       success:function(model,response,options){
         if(loginModel.get('email')){
-           alert('congrats you are logged in');
+          // alert('congrats you are logged in');
+            $('#box').empty();
+             messageModel.set("message","congrats you are logged in");
+             var messageView = new MessageView({model:messageModel});
+             $('#box').html(messageView.render().$el);
+
            //console.log(loginModel.attributes);
            accountModel.set('fname',loginModel.get('fname'));
            accountModel.set('lname',loginModel.get('lname'));
@@ -483,7 +504,11 @@ class LoginView extends Backbone.View{
         }
         else
         {
-           alert('invalid password');
+          // alert('invalid password');
+           $('#box').empty();
+             messageModel.set("message","Invalid password please try again");
+             var messageView = new MessageView({model:messageModel});
+             $('#box').html(messageView.render().$el);
         }
       },
 
@@ -579,6 +604,28 @@ class AccountView extends Backbone.View {
   }
 
 }
+
+class MessageView extends Backbone.View{
+  constructor(options) {
+    this.events = {
+      "click #exitmessage":"exitMessageBox"
+    }
+    super(options);
+    this.source = $('#message-template').html();
+  }
+  exitMessageBox(){
+    this.model.unset("message");
+    this.remove();
+  }
+  render () {
+    var template = Handlebars.compile(this.source);
+    var html = template(this.model.toJSON());
+    this.$el.html(html);
+    return this;
+  }
+  
+}
+
 //-------------------------------
 class ItemDetailView extends Backbone.View {
   constructor(options){
@@ -630,7 +677,11 @@ class ItemDetailView extends Backbone.View {
        this.remove();
     }
     else{
-      alert('You should login first to add items')
+      //alert('You should login first to add items')
+             $('#box').empty();
+             messageModel.set("message","You should login first to add items");
+             var messageView = new MessageView({model:messageModel});
+             $('#box').html(messageView.render().$el);
     }
   }
   closeDetail (){

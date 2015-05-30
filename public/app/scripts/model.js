@@ -334,6 +334,16 @@ class AccountModel extends Backbone.Model{
 
 var accountModel = new AccountModel();
 
+class MessageModel extends Backbone.Model{
+	defaults(){
+		return {
+			message:"Attention please this is a message box"
+		}
+	}
+}
+
+var messageModel = new MessageModel();
+
 class ItemDetailModel extends Backbone.Model{
 	defaults() {
 	    return {
@@ -373,4 +383,4 @@ class SearchModel extends Backbone.Model{
 export {CommonModel,HomeModel,ShirtModel,
 	JeansModel,SignupModel,signupModel,LoginModel,
 	loginModel,CartModel,AccountModel,
-	accountModel,itemDetailModel,SearchModel,ShoeModel,SareeModel,BoyModel,GirlModel,KurtiModel,SandleModel,DealModel,TrendModel,BrandModel};
+	accountModel,messageModel,itemDetailModel,SearchModel,ShoeModel,SareeModel,BoyModel,GirlModel,KurtiModel,SandleModel,DealModel,TrendModel,BrandModel};

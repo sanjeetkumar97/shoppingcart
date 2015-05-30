@@ -33,12 +33,22 @@ footer{
 #form-search{
   margin-top: 60px;
 }
-
 #popup{
   margin-top: 0px;
   width:100%;
   position: fixed;
   z-index: 2000;
+}
+#box{
+  margin-top: 50px;
+  width:100%;
+  position:fixed;
+  z-index: 2001;  
+}
+#message{
+  background-color: #FFFF00;
+  box-shadow: 2px 2px 5px;
+  border-radius: 7px;
 }
 
 #stuff-detail{
@@ -70,4 +80,17 @@ footer{
 
 .progress {
   margin-left: 35%;
+}
+
+#exitmessage {
+  margin-left: 40%; 
+  margin-bottom: 10px; 
+}
+
+#message h4  {
+   margin-left: 30%; 
+}
+
+#message h2 {
+   margin-left: 2%; 
 }

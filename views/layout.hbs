@@ -74,7 +74,7 @@
     </div>
   </div>
   </nav>
-
+  <div id="box" class="container-fluid"></div>
   <div id="popup" class="container-fluid"></div>
 
   <form class="form-inline container-fluid" role="form" id="form-search">
@@ -466,6 +466,21 @@
     </div>
   </div>
 </script>
+
+<script id="message-template" type="x-handlebars-template">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4" id="message">
+          <h4><i>Meesage Box</i></h4>
+          <h2>\{{message}}</h2>
+          <button type="button" id="exitmessage" class="btn btn-info">OK</button>
+      </div>
+      <div class="col-sm-4"></div>
+    </div>
+  </div>
+</script>
+
 <!-- STUFF DETAIL TEMPLATE -->
 <script  id="item-detail-template" type="x-handlebars-template">
   <div class="container-fluid">
