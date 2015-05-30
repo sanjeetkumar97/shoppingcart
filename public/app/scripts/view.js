@@ -533,12 +533,20 @@ class CartView extends Backbone.View {
   constructor(options) {
     this.events = {
      "click #close":"closeCart",
-     "click .removeItem":"removeCartItem"
+     "click .removeItem":"removeCartItem",
+     "click #buy":"buy"
     }
     this.source = $('#cart-template').html();
     super(options);
    // this.listenTo(app.Todos, 'add', this.addOne);
   // this.listenTo(cartCollection, 'remove', this.render);
+  }
+  buy(){
+    //alert('this is demo version');
+     $('#box').empty();
+     messageModel.set("message","This is demo version, you can not buy");
+     var messageView = new MessageView({model:messageModel});
+     $('#box').html(messageView.render().$el);
   }
   removeCartItem(e){
     e.preventDefault();
