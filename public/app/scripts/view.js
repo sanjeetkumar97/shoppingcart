@@ -87,6 +87,7 @@ import {SignupModel,signupModel,LoginModel,
       if(sh != ""){
       $('#search').val('');
       location.assign("https://aqueous-mountain-5707.herokuapp.com/#/search/"+sh);
+       $('#hints').empty();
       }else{
        // alert('please insert some data');
              $('#box').empty();
@@ -103,6 +104,7 @@ import {SignupModel,signupModel,LoginModel,
         if(sh != ""){
         $('#search').val('');
        location.assign("https://aqueous-mountain-5707.herokuapp.com/#/search/"+sh);
+        $('#hints').empty();
         }else{
          // alert('please insert some data');
              $('#box').empty();
