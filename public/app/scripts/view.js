@@ -23,43 +23,95 @@ import {SignupModel,signupModel,LoginModel,
        'click .brand-detail' : 'showBrandDetail',
        'click .search-detail':'showSearchDetail',
        'click #logout' : 'logout',
-       'keypress #search': 'enterSearch',
-       'click #search-submit':'clickSearch'
+       'keyup #search': 'showHint',
+       'keypress #search':'enterSearch',
+       'click #search-submit':'clickSearch',
+       'click .hintItem':'runHint'
 	    }
 		this.source = $('#common-template').html();
 		super(options);
 	}
+ runHint(e){
+    e.preventDefault();
+   var id = $(e.currentTarget).data("id");
+   console.log(id);
+    alert('This feature is being developed');
+
+  }
+  showHint(e){
+      $('#hints').empty();
+      //console.log($('#search').val());
+      if (e.which != ENTER_KEY &&  $('#search').val()) {
+
+        $('#hints').empty();
+        e.preventDefault();
+        var hint = $('#search').val();
+
+        jQuery.ajax({
+            url:'/api/hint',
+            type:"POST",
+            data:{
+              'hint':hint
+            },
+            success:function(data,textStatus,jqXHR){ 
+
+              for(var i=0;i<data.length;i++){
+                  data[i].id = data[i]._id;
+
+                  var hintList = document.createElement("li");
+                  hintList.innerHTML = data[i].name;
+                  hintList.className = "hintItem";
+                  hintList.setAttribute('data-id',data[i].id);
+                 // hintList.data-id = data[i].id;
+                 // leye.title = "Show/Hide Layer"; 
+                //  leye.className = "layereye";
+                 // leye.id = eyeid;
+                 // leye.setAttribute('onclick','getEye();');
+                // var hints = document.getElementById("#hints");
+                  hints.appendChild(hintList);
+                  $('#hints').append(hintList);
+
+              }
+            // console.log(data);
+
+
+            }
+          });
+      }
+
+  }
+ 
   clickSearch(e){
     e.preventDefault();
     var sh = $('#search').val();
       if(sh != ""){
       $('#search').val('');
-      //location.assign("http://localhost:3000/#/search/"+sh);
       location.assign("https://aqueous-mountain-5707.herokuapp.com/#/search/"+sh);
       }else{
-        //alert('please insert some data');
-            $('#box').empty();
+       // alert('please insert some data');
+             $('#box').empty();
              messageModel.set("message","Please insert some data");
              var messageView = new MessageView({model:messageModel});
              $('#box').html(messageView.render().$el);
       }
   }
   enterSearch(e){
+     $('#hints').empty();
     if (e.which === ENTER_KEY ) {
         e.preventDefault();
        var sh = $('#search').val();
         if(sh != ""){
         $('#search').val('');
-        //location.assign("http://localhost:3000/#/search/"+sh);
-        location.assign("https://aqueous-mountain-5707.herokuapp.com/#/search/"+sh);
+       location.assign("https://aqueous-mountain-5707.herokuapp.com/#/search/"+sh);
         }else{
-          //alert('please insert some data');
+         // alert('please insert some data');
              $('#box').empty();
              messageModel.set("message","Please insert some data");
              var messageView = new MessageView({model:messageModel});
              $('#box').html(messageView.render().$el);
         }
      }
+     
   }
   
   showDealDetail(e){

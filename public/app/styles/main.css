@@ -94,3 +94,9 @@ footer{
 #message h2 {
    margin-left: 2%; 
 }
+
+#hints {
+  position:fixed;
+  z-index: 2002;
+  background-color: #FFFFFF;
+}

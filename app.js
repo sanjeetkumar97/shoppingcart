@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 
 
+
 var routes = require('./routes/index');
 var shirts = require('./routes/shirts');
 var jeanses = require('./routes/jeanses');
@@ -19,6 +20,7 @@ var girls = require('./routes/girls');
 var kurtis = require('./routes/kurtis');
 var sandles = require('./routes/sandles');
 var search = require('./routes/search');
+var hint = require('./routes/hint');
 
 //var users = require('./routes/users');
 
@@ -59,6 +61,7 @@ app.use('/',profiles);
 app.use('/',kurtis);
 app.use('/',sandles);
 app.use('/',search);
+app.use('/',hint);
 
 //app.use('/users', users);
 
