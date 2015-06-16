@@ -248,7 +248,7 @@ import {SignupModel,signupModel,LoginModel,
             for(var i=0;i<prices.length;i++){
               var price = parseInt(prices[i]);
               total = total+price;
-              console.log(total);
+             
             }
             $("#total").html(total);
            // document.getElementById("total").innerHTML = total; 
@@ -733,9 +733,9 @@ class ItemDetailView extends Backbone.View {
   addToCart(e){
     e.preventDefault();
 
-    $('#popup').empty();
+    $('#box').empty();
     var spinnerView = new SpinnerView();
-    $('#popup').html(spinnerView.render().$el);
+    $('#box').html(spinnerView.render().$el);
 
     if(loginModel.get('email')){
       // console.log(itemDetailModel);
@@ -759,6 +759,7 @@ class ItemDetailView extends Backbone.View {
            //console.log(data);
            cartCollection.reset([]);
            cartCollection.add(data);
+            $('#box').empty();
             $('#popup').empty();
             var cartView = new CartView({collection:cartCollection});
             $('#popup').html(cartView.render().$el);
