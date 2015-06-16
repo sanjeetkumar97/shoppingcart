@@ -21,6 +21,7 @@ var kurtis = require('./routes/kurtis');
 var sandles = require('./routes/sandles');
 var search = require('./routes/search');
 var hint = require('./routes/hint');
+var hintResult = require('./routes/hintResult');
 
 //var users = require('./routes/users');
 
@@ -62,6 +63,7 @@ app.use('/',kurtis);
 app.use('/',sandles);
 app.use('/',search);
 app.use('/',hint);
+app.use('/',hintResult);
 
 //app.use('/users', users);
 

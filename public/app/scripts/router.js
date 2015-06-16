@@ -1,5 +1,5 @@
-import {HomeModel} from './model';
-import {HomeView,ShirtView,JeansView,ShoeView,SareeView,BoyView,GirlView,KurtiView,SandleView,DealView,TrendView,BrandView,SearchView} from './view';
+import {HomeModel,itemDetailModel} from './model';
+import {HomeView,ShirtView,JeansView,ShoeView,SareeView,BoyView,GirlView,KurtiView,SandleView,DealView,TrendView,BrandView,SearchView,ItemDetailView} from './view';
 import {shirts,jeanses,shoes,sarees,boys,girls,kurtis,sandles,deals,trends,brands,searchResults} from './collection';
 
 class Router extends Backbone.Router{
@@ -15,9 +15,31 @@ class Router extends Backbone.Router{
 	      'girl':'showGirl',
 	      'kurti':'showKurti',
 	      'sandle':'showSandle',
-	      'search/:sdata':'showSearch'
+	      'search/:sdata':'showSearch',
+	      'hint/:hvalue':'showHint'
 		}
 		super();
+	}
+	showHint(hvalue){
+		jQuery.get('/api/hintResult/'+hvalue,function(data,textStatus,jqXHR){
+			for(var i=0;i<data.length;i++){
+                data[i].id = data[i]._id;
+              }
+              searchResults.reset([]);
+              searchResults.add(data);
+              //console.log(searchResults);
+              $('#wrapper').empty();
+              var searchView = new SearchView({collection:searchResults});
+              $('#wrapper').html(searchView.render().$el); 
+
+              itemDetailModel = searchResults.get(hvalue);
+              console.log(itemDetailModel);
+			  $('#popup').empty();
+			  var itemDetailView = new ItemDetailView({model:itemDetailModel});
+			  $('#popup').html(itemDetailView.render().$el);        
+        
+       });
+
 	}
 	showSearch(sdata){
 		//alert('the data is '+data);

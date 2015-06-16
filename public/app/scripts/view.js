@@ -31,13 +31,17 @@ import {SignupModel,signupModel,LoginModel,
 		this.source = $('#common-template').html();
 		super(options);
 	}
- runHint(e){
-    e.preventDefault();
-   var id = $(e.currentTarget).data("id");
-   console.log(id);
-    alert('This feature is being developed');
+  runHint(e){
+      $('#hints').empty();
+      $('#search').val('');
+      e.preventDefault();
+      var hintId = $(e.currentTarget).data("id");
+      console.log(hintId);
+     // location.assign("http://localhost:3000/#/hint/"+hintId);
+      location.assign("https://aqueous-mountain-5707.herokuapp.com/#/hint/"+hintId);
 
-  }
+       }
+
   showHint(e){
       $('#hints').empty();
       //console.log($('#search').val());
@@ -62,19 +66,10 @@ import {SignupModel,signupModel,LoginModel,
                   hintList.innerHTML = data[i].name;
                   hintList.className = "hintItem";
                   hintList.setAttribute('data-id',data[i].id);
-                 // hintList.data-id = data[i].id;
-                 // leye.title = "Show/Hide Layer"; 
-                //  leye.className = "layereye";
-                 // leye.id = eyeid;
-                 // leye.setAttribute('onclick','getEye();');
-                // var hints = document.getElementById("#hints");
                   hints.appendChild(hintList);
                   $('#hints').append(hintList);
 
               }
-            // console.log(data);
-
-
             }
           });
       }
@@ -82,12 +77,14 @@ import {SignupModel,signupModel,LoginModel,
   }
  
   clickSearch(e){
-    e.preventDefault();
+     $('#hints').empty();
+   
     var sh = $('#search').val();
+     e.preventDefault();
       if(sh != ""){
       $('#search').val('');
       location.assign("https://aqueous-mountain-5707.herokuapp.com/#/search/"+sh);
-       $('#hints').empty();
+       
       }else{
        // alert('please insert some data');
              $('#box').empty();
@@ -96,6 +93,7 @@ import {SignupModel,signupModel,LoginModel,
              $('#box').html(messageView.render().$el);
       }
   }
+
   enterSearch(e){
      $('#hints').empty();
     if (e.which === ENTER_KEY ) {
@@ -757,4 +755,4 @@ class ItemDetailView extends Backbone.View {
   }
 }
 
-export {CommonView,HomeView,ShirtView,JeansView,ShoeView,SareeView,BoyView,GirlView,KurtiView,SandleView,DealView,TrendView,BrandView,SearchView};
+export {CommonView,HomeView,ShirtView,JeansView,ShoeView,SareeView,BoyView,GirlView,KurtiView,SandleView,DealView,TrendView,BrandView,SearchView,ItemDetailView};
