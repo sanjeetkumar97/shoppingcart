@@ -254,6 +254,7 @@ class SignupModel extends Backbone.Model{
 		if(attrs.pone != attrs.ptwo) errors.match = 'password are not matching';
 		if (!attrs.gen) errors.gen = 'gender is required';
 		if (!_.isEmpty(errors)){
+			$('#box').empty();
 			var errmsg = [];
 			if(errors.fname){
 				errmsg.push('Firstname is required ');
