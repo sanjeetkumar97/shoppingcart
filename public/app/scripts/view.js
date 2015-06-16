@@ -248,6 +248,7 @@ import {SignupModel,signupModel,LoginModel,
             for(var i=0;i<prices.length;i++){
               var price = parseInt(prices[i]);
               total = total+price;
+              console.log(total);
             }
             $("#total").html(total);
            // document.getElementById("total").innerHTML = total; 
