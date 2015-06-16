@@ -474,6 +474,10 @@ class SignupView extends Backbone.View {
     super(options)
   }
   signup (e){
+    $('#box').empty();
+    var spinnerView = new SpinnerView();
+    $('#box').html(spinnerView.render().$el);
+
     var self = this;
     e.preventDefault();
     var firstName = $('#fname').val();
@@ -512,6 +516,7 @@ class SignupView extends Backbone.View {
   
   //this.remove();
   }
+
   closeSignup (){
     this.remove();
   }
@@ -538,11 +543,13 @@ class LoginView extends Backbone.View{
   }
   login (e){
     e.preventDefault();
+    $('#box').empty();
+    var spinnerView = new SpinnerView();
+    $('#box').html(spinnerView.render().$el);
+
     var em = $('#login-email').val();
     var pass = $('#login-password').val();
-
     loginModel.set({email:em,pwd:pass});
-
     loginModel.save(loginModel.attributes,{
       success:function(model,response,options){
         if(loginModel.get('email')){
@@ -720,6 +727,11 @@ class ItemDetailView extends Backbone.View {
   }
   addToCart(e){
     e.preventDefault();
+
+    $('#popup').empty();
+    var spinnerView = new SpinnerView();
+    $('#popup').html(spinnerView.render().$el);
+
     if(loginModel.get('email')){
       // console.log(itemDetailModel);
 
