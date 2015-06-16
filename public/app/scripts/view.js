@@ -773,6 +773,7 @@ class ItemDetailView extends Backbone.View {
     else{
       //alert('You should login first to add items')
              $('#box').empty();
+             $('#popup').empty();
              messageModel.set("message","You should login first to add items");
              var messageView = new MessageView({model:messageModel});
              $('#box').html(messageView.render().$el);
