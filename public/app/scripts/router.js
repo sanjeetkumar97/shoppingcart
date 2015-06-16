@@ -1,5 +1,5 @@
 import {HomeModel,itemDetailModel} from './model';
-import {HomeView,ShirtView,JeansView,ShoeView,SareeView,BoyView,GirlView,KurtiView,SandleView,DealView,TrendView,BrandView,SearchView,ItemDetailView} from './view';
+import {HomeView,ShirtView,JeansView,ShoeView,SareeView,BoyView,GirlView,KurtiView,SandleView,DealView,TrendView,BrandView,SearchView,ItemDetailView,SpinnerView} from './view';
 import {shirts,jeanses,shoes,sarees,boys,girls,kurtis,sandles,deals,trends,brands,searchResults} from './collection';
 
 class Router extends Backbone.Router{
@@ -21,6 +21,10 @@ class Router extends Backbone.Router{
 		super();
 	}
 	showHint(hvalue){
+			$('#box').empty();
+            var spinnerView = new SpinnerView();
+            $('#box').html(spinnerView.render().$el);
+
 		jQuery.get('/api/hintResult/'+hvalue,function(data,textStatus,jqXHR){
 			for(var i=0;i<data.length;i++){
                 data[i].id = data[i]._id;
@@ -28,6 +32,7 @@ class Router extends Backbone.Router{
               searchResults.reset([]);
               searchResults.add(data);
               //console.log(searchResults);
+              $('#box').empty();
               $('#wrapper').empty();
               var searchView = new SearchView({collection:searchResults});
               $('#wrapper').html(searchView.render().$el); 

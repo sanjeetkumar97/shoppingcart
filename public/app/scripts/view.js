@@ -789,4 +789,4 @@ class ItemDetailView extends Backbone.View {
   }
 }
 
-export {CommonView,HomeView,ShirtView,JeansView,ShoeView,SareeView,BoyView,GirlView,KurtiView,SandleView,DealView,TrendView,BrandView,SearchView,ItemDetailView};
+export {CommonView,HomeView,ShirtView,JeansView,ShoeView,SareeView,BoyView,GirlView,KurtiView,SandleView,DealView,TrendView,BrandView,SearchView,ItemDetailView,SpinnerView};
