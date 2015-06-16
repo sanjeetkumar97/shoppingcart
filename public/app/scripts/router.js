@@ -48,6 +48,9 @@ class Router extends Backbone.Router{
 	}
 	showSearch(sdata){
 		//alert('the data is '+data);
+			$('#box').empty();
+            var spinnerView = new SpinnerView();
+            $('#box').html(spinnerView.render().$el);
 		jQuery.ajax({
             url:'/api/search',
             type:"POST",
@@ -67,7 +70,7 @@ class Router extends Backbone.Router{
               var searchView = new SearchView({collection:searchResults});
               $('#wrapper').html(searchView.render().$el);
               }else{
-
+              	$('#box').empty();
                 alert('Sorry no match for '+sdata);
               }
             }
