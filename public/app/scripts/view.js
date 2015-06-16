@@ -617,6 +617,9 @@ class CartView extends Backbone.View {
      $('#box').html(messageView.render().$el);
   }
   removeCartItem(e){
+            $('#box').empty();
+            var spinnerView = new SpinnerView();
+            $('#box').html(spinnerView.render().$el);
     e.preventDefault();
     var itemId = $(e.currentTarget).data("id");
     var sUserId = loginModel.get('userId');
@@ -633,6 +636,7 @@ class CartView extends Backbone.View {
            cartCollection.reset([]);
            cartCollection.add(data);
           // console.log(cartCollection);
+            $('#box').empty();
             $('#popup').empty();
             var cartView = new CartView({collection:cartCollection});
             $('#popup').html(cartView.render().$el);
