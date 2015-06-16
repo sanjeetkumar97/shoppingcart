@@ -225,6 +225,10 @@ import {SignupModel,signupModel,LoginModel,
 	    $('#popup').html(loginView.render().$el);
 	    }
 	showCart(){
+           $('#popup').empty();
+            var spinnerView = new SpinnerView();
+            $('#popup').html(spinnerView.render().$el);
+
        var sUserId = loginModel.get('userId');
        jQuery.get( '/api/cartItems/'+sUserId, function( data, textStatus, jqXHR ) {
             cartCollection.reset([]);
@@ -684,6 +688,19 @@ class MessageView extends Backbone.View{
     return this;
   }
   
+}
+
+class SpinnerView extends Backbone.View{
+  constructor(options){
+    super(options);
+    this.source = $('#spinner-template').html();
+  }
+  render () {
+    var template = Handlebars.compile(this.source);
+    var html = template();
+    this.$el.html(html);
+    return this;
+  }
 }
 
 //-------------------------------
