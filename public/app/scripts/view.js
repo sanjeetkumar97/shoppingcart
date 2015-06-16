@@ -48,6 +48,10 @@ import {SignupModel,signupModel,LoginModel,
       if (e.which != ENTER_KEY &&  $('#search').val()) {
 
         $('#hints').empty();
+        //----------------------
+          var spinnerView = new SpinnerView();
+          $('#hints').html(spinnerView.render().$el);
+        //----------------------
         e.preventDefault();
         var hint = $('#search').val();
 
@@ -59,6 +63,7 @@ import {SignupModel,signupModel,LoginModel,
             },
             success:function(data,textStatus,jqXHR){ 
 
+              $('#hints').empty();
               for(var i=0;i<data.length;i++){
                   data[i].id = data[i]._id;
 
@@ -225,7 +230,7 @@ import {SignupModel,signupModel,LoginModel,
 	    $('#popup').html(loginView.render().$el);
 	    }
 	showCart(){
-           $('#popup').empty();
+            $('#popup').empty();
             var spinnerView = new SpinnerView();
             $('#popup').html(spinnerView.render().$el);
 
