@@ -10,16 +10,6 @@ class Application {
 }
 
 $(() => {
-	
-	$('.spinner').hide();
-
-	$(document).ajaxStart(function(){
-        $('.spinner').show();
-    });
-    $(document).ajaxStop(function(){
-        $('.spinner').hide();
-    });
-
 	var commonModel = new CommonModel();
 	var commonView = new CommonView({model:commonModel});
 	$('#app').html(commonView.render().$el);
