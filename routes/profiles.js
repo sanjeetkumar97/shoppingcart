@@ -46,6 +46,20 @@ router.route('/api/profile/:id').get(function(req,res){
   });
 });
 
+router.route('/api/profile/:id').delete(function( request, response ) {
+  console.log( 'Deleting profile with id: ' + request.params.id );
+  return ProfileModel.findById( request.params.id, function( err, profile ) {
+  return profile.remove( function( err ) {
+    if( !err ) {
+  console.log( 'profile removed' );
+  return response.send( '' );
+  } else {
+  console.log( err );
+  }
+  });
+  });
+});
+
 router.route('/api/profile/:id').put(function( request, response ) {
 return ProfileModel.findById( request.params.id, function( err, profile ) {
 //console.log(request.params.id);
