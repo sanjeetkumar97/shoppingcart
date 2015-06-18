@@ -8,7 +8,6 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 
 
-
 var routes = require('./routes/index');
 var shirts = require('./routes/shirts');
 var jeanses = require('./routes/jeanses');
@@ -32,7 +31,7 @@ var fs = require('fs');
 
 hbs.registerPartials(__dirname + '/views/partials');
  //mongoose.connect('mongodb://localhost/cartdb');
- mongoose.connect('mongodb://sanjeet:noidea@ds031952.mongolab.com:31952/cartdb');
+mongoose.connect('mongodb://sanjeet:noidea@ds031952.mongolab.com:31952/cartdb');
 
 app.set('view engine', 'hbs');
 app.set('views', __dirname + '/views');
