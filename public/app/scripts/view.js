@@ -261,6 +261,9 @@ import {SignupModel,signupModel,LoginModel,
 	   $('#popup').html(accountView.render().$el);
  	  }
   logout(){
+
+          document.cookie = "email" + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+          document.cookie = "password" + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
          
           loginModel.unset('email');
           loginModel.unset('pwd');
@@ -559,6 +562,9 @@ class LoginView extends Backbone.View{
              messageModel.set("message","congrats you are logged in");
              var messageView = new MessageView({model:messageModel});
              $('#box').html(messageView.render().$el);
+
+            document.cookie = "email="+em;
+           document.cookie = "password="+pass;
 
            //console.log(loginModel.attributes);
            accountModel.set('fname',loginModel.get('fname'));
