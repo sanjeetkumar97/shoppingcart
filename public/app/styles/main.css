@@ -20,6 +20,9 @@ footer{
       margin: auto;
      
 }
+.navbar {
+    z-index: 2005;
+}
 /*
 #cart
 { 

@@ -29,6 +29,12 @@ import {SignupModel,signupModel,LoginModel,
        'click .hintItem':'runHint'
 	    }
 		this.source = $('#common-template').html();
+    this.scrollIt = function(){
+       if(screen.width < 250 || screen.height < 350){
+          $('#popup').css("position","absolute");
+          window.scrollTo(0,0);
+        }
+    }
 		super(options);
 	}
   runHint(e){
@@ -120,6 +126,7 @@ import {SignupModel,signupModel,LoginModel,
   }
   
   showDealDetail(e){
+     this.scrollIt();
     e.preventDefault();
    var id = $(e.currentTarget).data("id");
    itemDetailModel = deals.get(id);
@@ -129,6 +136,7 @@ import {SignupModel,signupModel,LoginModel,
 
   }
   showTrendDetail(e){
+     this.scrollIt();
     e.preventDefault();
    var id = $(e.currentTarget).data("id");
    itemDetailModel = trends.get(id);
@@ -138,7 +146,7 @@ import {SignupModel,signupModel,LoginModel,
 
   }
   showBrandDetail(e){
-    console.log(screen.width);
+     this.scrollIt();
     e.preventDefault();
    var id = $(e.currentTarget).data("id");
    itemDetailModel = brands.get(id);
@@ -148,6 +156,7 @@ import {SignupModel,signupModel,LoginModel,
 
   }
   showShirtDetail(e){
+     this.scrollIt();
     e.preventDefault();
    var id = $(e.currentTarget).data("id");
    itemDetailModel = shirts.get(id);
@@ -157,6 +166,7 @@ import {SignupModel,signupModel,LoginModel,
 
   }
   showJeansDetail(e){
+     this.scrollIt();
     e.preventDefault();
    var id = $(e.currentTarget).data("id");
    itemDetailModel = jeanses.get(id);
@@ -165,6 +175,7 @@ import {SignupModel,signupModel,LoginModel,
     $('#popup').html(itemDetailView.render().$el);
   }
   showShoeDetail(e){
+     this.scrollIt();
     e.preventDefault();
    var id = $(e.currentTarget).data("id");
    itemDetailModel = shoes.get(id);
@@ -173,6 +184,7 @@ import {SignupModel,signupModel,LoginModel,
     $('#popup').html(itemDetailView.render().$el);
   }
   showSareeDetail(e){
+     this.scrollIt();
     e.preventDefault();
    var id = $(e.currentTarget).data("id");
    itemDetailModel = sarees.get(id);
@@ -181,6 +193,7 @@ import {SignupModel,signupModel,LoginModel,
     $('#popup').html(itemDetailView.render().$el);
   }
   showBoyDetail(e){
+     this.scrollIt();
     e.preventDefault();
    var id = $(e.currentTarget).data("id");
    itemDetailModel = boys.get(id);
@@ -189,6 +202,7 @@ import {SignupModel,signupModel,LoginModel,
     $('#popup').html(itemDetailView.render().$el);
   }
   showGirlDetail(e){
+     this.scrollIt();
     e.preventDefault();
    var id = $(e.currentTarget).data("id");
    itemDetailModel = girls.get(id);
@@ -197,6 +211,7 @@ import {SignupModel,signupModel,LoginModel,
     $('#popup').html(itemDetailView.render().$el);
   }
    showKurtiDetail(e){
+     this.scrollIt();
     e.preventDefault();
    var id = $(e.currentTarget).data("id");
    itemDetailModel = kurtis.get(id);
@@ -205,6 +220,7 @@ import {SignupModel,signupModel,LoginModel,
     $('#popup').html(itemDetailView.render().$el);
   }
   showSandleDetail(e){
+     this.scrollIt();
     e.preventDefault();
    var id = $(e.currentTarget).data("id");
    itemDetailModel = sandles.get(id);
@@ -213,6 +229,7 @@ import {SignupModel,signupModel,LoginModel,
     $('#popup').html(itemDetailView.render().$el);
   }
   showSearchDetail(e){
+     this.scrollIt();
     e.preventDefault();
     var id = $(e.currentTarget).data("id");
     itemDetailModel = searchResults.get(id);
@@ -221,16 +238,19 @@ import {SignupModel,signupModel,LoginModel,
     $('#popup').html(itemDetailView.render().$el);
   }
 	showSignup(){
+     this.scrollIt();
 	    $('#popup').empty();
 	    var signupView = new SignupView({model:signupModel});
 	    $('#popup').html(signupView.render().$el);
 	  	}
 	showLogin(){
+     this.scrollIt();
 	    $('#popup').empty();
 	    var loginView = new LoginView({model:loginModel});
 	    $('#popup').html(loginView.render().$el);
 	    }
 	showCart(){
+             this.scrollIt();
             $('#popup').empty();
             var spinnerView = new SpinnerView();
             $('#popup').html(spinnerView.render().$el);
@@ -256,6 +276,7 @@ import {SignupModel,signupModel,LoginModel,
         });
  	   }
  	showAccount(e){
+      this.scrollIt();
 	   e.preventDefault();
 	   $('#popup').empty();
 	   var accountView = new AccountView({model:accountModel});
