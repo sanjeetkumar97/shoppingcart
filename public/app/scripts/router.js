@@ -48,6 +48,7 @@ class Router extends Backbone.Router{
 	}
 	showSearch(sdata){
 		//alert('the data is '+data);
+			$('#hints').empty();
 			$('#popup').empty();
             var spinnerView = new SpinnerView();
             $('#popup').html(spinnerView.render().$el);

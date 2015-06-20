@@ -93,11 +93,13 @@ import {SignupModel,signupModel,LoginModel,
     var sh = $('#search').val();
      e.preventDefault();
       if(sh != ""){
+       $('#hints').empty();
       $('#search').val('');
       location.assign("https://aqueous-mountain-5707.herokuapp.com/#/search/"+sh);
        
       }else{
        // alert('please insert some data');
+              $('#hints').empty();
              $('#box').empty();
              messageModel.set("message","Please insert some data");
              var messageView = new MessageView({model:messageModel});
@@ -111,10 +113,12 @@ import {SignupModel,signupModel,LoginModel,
         e.preventDefault();
        var sh = $('#search').val();
         if(sh != ""){
+         $('#hints').empty();
         $('#search').val('');
        location.assign("https://aqueous-mountain-5707.herokuapp.com/#/search/"+sh);
         $('#hints').empty();
         }else{
+             $('#hints').empty();
          // alert('please insert some data');
              $('#box').empty();
              messageModel.set("message","Please insert some data");
