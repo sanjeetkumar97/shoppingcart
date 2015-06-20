@@ -67,11 +67,13 @@ class Router extends Backbone.Router{
               console.log(searchResults);
 
               if(searchResults.length != 0){
+              $('#hints').empty();
               $('#popup').empty();
               $('#wrapper').empty();
               var searchView = new SearchView({collection:searchResults});
               $('#wrapper').html(searchView.render().$el);
               }else{
+              	$('#hints').empty();
               	$('#popup').empty();
                 alert('Sorry no match for '+sdata);
               }
