@@ -559,9 +559,9 @@ class LoginView extends Backbone.View{
         if(loginModel.get('email')){
           // alert('congrats you are logged in');
             $('#box').empty();
-             messageModel.set("message","congrats you are logged in");
-             var messageView = new MessageView({model:messageModel});
-             $('#box').html(messageView.render().$el);
+             //messageModel.set("message","congrats you are logged in");
+            // var messageView = new MessageView({model:messageModel});
+            // $('#box').html(messageView.render().$el);
 
             document.cookie = "email="+em;
            document.cookie = "password="+pass;
