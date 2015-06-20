@@ -138,6 +138,7 @@ import {SignupModel,signupModel,LoginModel,
 
   }
   showBrandDetail(e){
+    console.log(screen.width);
     e.preventDefault();
    var id = $(e.currentTarget).data("id");
    itemDetailModel = brands.get(id);
